@@ -5,6 +5,7 @@ const btn = document.querySelector("#calcular-result");
 const gastosSemanais = document.querySelector("#gastos-semana"); 
 const quantViagens = document.querySelector("#quant-viagens"); 
 const maisResultados = document.querySelector("#mais-resultados"); 
+const error = document.querySelector(".erro"); 
 
 
 /* Funções */
@@ -23,11 +24,39 @@ const calcularCreditos = () => {
     const viagensValue = viagens.value; 
     const saldoValue = saldo.value; 
 
-    if(!precoValue || !viagensValue || !saldoValue) return; 
-    if(isNaN(precoValue) || isNaN(viagensValue) || isNaN(saldoValue)) return; 
+    if(!precoValue || !viagensValue || !saldoValue){
+        error.innerText = "Por favor, insira valores para continuar"; 
+        error.style.color = "red"; 
+        error.style.textAlign = "center" 
+
+        setTimeout(() => {
+            location.reload(); 
+        }, 1000);
+
+    }
+
+    else if(isNaN(precoValue) || isNaN(viagensValue) || isNaN(saldoValue)){
+        error.innerText = "Por favor, insira valores númericos"; 
+        error.style.color = "red"; 
+        error.style.textAlign = "center";
+
+        setTimeout(() => {
+            location.reload(); 
+        }, 1000);
+    }
+
+    else if(precoValue <= 0 || viagensValue <=0 || saldoValue <=0){
+        error.innerText = "Por favor, insira valores maiores que 0 "; 
+        error.style.color = "red"; 
+        error.style.textAlign = "center";
+
+        setTimeout(() => {
+            location.reload(); 
+        }, 1000);
+    }
 
     else{
-        const result = multiplicar(precoValue, viagensValue); 
+    const result = multiplicar(precoValue, viagensValue); 
 
     gastosSemanais.innerText = `Seus gastos por semana: R$ ${result}`;
     gastosSemanais.style.color = "green"; 
@@ -57,8 +86,10 @@ const calcularCreditos = () => {
             tempo = `meses`; 
         }
 
-        
-
+    }
+    else if(tempoValue <= 0){
+        tempoValue = `menos de`; 
+        tempo = `uma semana`; 
     }
     
     maisResultados.innerText = `Isso são: ${tempoValue} ${tempo}`; 
@@ -81,6 +112,5 @@ viagens.addEventListener("keypress", (e) => {
         calcularCreditos(); 
     }
 })
-
 
 
