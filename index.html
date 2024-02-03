@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https:/use.fontawesome.com/releases/v5.15.4/css/solid.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/fontawesome.css"
+    />
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+    <title>Calcular créditos ônibus</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Calculadora de passagens <span class="fa fa-calculator" ></span></h1>
+            <p id = "description">Insira as informações abaixo para calcular seus gastos: </p>
+            <div class="form">
+                <label for="preco-passagem">Preço da passagem: </label>
+                <input id = "preco-passagem" type="number" placeholder = "4,50" required>
+                <label for="saldo">Seu saldo: </label>
+                <input id = "saldo" type="number" placeholder = "15,00" required>
+                <label for="frequencia-viagens">Quantas vezes na semana você pega ônibus: </label>
+                <input id = "frequencia-viagens" type="number" placeholder = "7" required>
+                <div class="form-button">
+                    <button id = "calcular-result">Calcular</button>
+                </div>
+            </div>
+            <div class="resultados">
+                <p class = "erro"></p>
+                <p id = "gastos-semana"></p>
+                <p id  = "quant-viagens"></p>
+                <p id ="mais-resultados"></p>
+            </div>
+        </div>
+
+        <!-- <div class="img-container"><img src="img/math-img.png" alt=""></div> -->
+
+        
+    </div>
+    
+
+    
+</body>
+</html>
