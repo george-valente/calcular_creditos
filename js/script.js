@@ -7,6 +7,7 @@ const quantViagens = document.querySelector("#quant-viagens");
 const maisResultados = document.querySelector("#mais-resultados"); 
 
 
+/* Funções */
 const multiplicar = (a,b) => {
     return a * b;   
     
@@ -16,9 +17,8 @@ const dividir = (a,b) => {
     return parseInt(a / b); 
 }
 
-btn.addEventListener("click", (e)=> {
-    e.preventDefault(); 
 
+const calcularCreditos = () => {
     const precoValue = preco.value; 
     const viagensValue = viagens.value; 
     const saldoValue = saldo.value; 
@@ -66,10 +66,21 @@ btn.addEventListener("click", (e)=> {
     maisResultados.style.fontWeight = "bold"; 
 
     }
+    
+}
 
+/* Eventos */
+btn.addEventListener("click", (e)=> {
+    e.preventDefault(); 
+    calcularCreditos(); 
     
 })
 
+viagens.addEventListener("keypress", (e) => {
+    if(e.key === "Enter"){
+        calcularCreditos(); 
+    }
+})
 
 
 
